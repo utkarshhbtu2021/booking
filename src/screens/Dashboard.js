@@ -9,17 +9,19 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Screens from '../navigations/Screens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SVG_BACK from '../assets/svg/back.svg';
 import SVG_MENU from '../assets/svg/Menu.svg';
 import SVG_MOBILE from '../assets/svg/mobile.svg';
 import {scaleFont, scaleSize} from '../utils/Mixins';
+import FilterListBottomSheet from '../Components/FilterListBottomSheet';
 
 export default function Dashboard(props) {
   const [showData, setShowData] = useState(false);
-  const data = [1, 2, 3];
+  const bottomSheet = useRef();
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#F7850F'}}>
       <StatusBar
@@ -183,206 +185,129 @@ export default function Dashboard(props) {
             </Text>
           </View>
         </View>
+        <Text
+          style={{
+            marginHorizontal: scaleSize(25),
+            marginTop: scaleSize(20),
+            fontSize: scaleFont(15),
+            color: 'black',
+            fontWeight: '700',
+          }}>
+          Kindly use below filters to fetch meetings based on your preferred
+          criteria.
+        </Text>
         <View
-          style={{marginHorizontal: scaleSize(25), marginTop: scaleSize(20)}}>
-          <Text
-            style={{
-              fontSize: scaleFont(14),
-              color: 'black',
-              fontWeight: '500',
-            }}>
-            From
+          style={{
+            marginHorizontal: scaleSize(25),
+            marginTop: scaleSize(20),
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <View style={{}}>
+            <Text
+              style={{
+                fontSize: scaleFont(14),
+                color: 'black',
+                fontWeight: '500',
+                // backgroundColor: 'red',
+              }}>
+              *From{' '}
+            </Text>
             <Text
               style={{
                 fontSize: scaleFont(14),
                 color: '#959595',
                 fontWeight: '500',
                 // marginTop: scaleSize(10),
+                textDecorationLine: 'underline',
               }}>
-              {' '}
-              - 22/11/2023
+              22/11/2023
             </Text>
-          </Text>
-          <Text
-            style={{
-              fontSize: scaleFont(14),
-              color: 'black',
-              fontWeight: '500',
-              marginTop: scaleSize(10),
-            }}>
-            To
-            <Text
-              style={{
-                fontSize: scaleFont(14),
-                color: '#959595',
-                fontWeight: '500',
-                // marginTop: scaleSize(10),
-              }}>
-              {' '}
-              - 22/12/2023
-            </Text>
-          </Text>
-          <Text
-            style={{
-              fontSize: scaleFont(14),
-              color: 'black',
-              fontWeight: '500',
-              marginTop: scaleSize(10),
-            }}>
-            Status
-            <Text
-              style={{
-                fontSize: scaleFont(14),
-                color: '#959595',
-                fontWeight: '500',
-                // marginTop: scaleSize(10),
-              }}>
-              {' '}
-              - Open
-            </Text>
-          </Text>
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'gray',
-              padding: scaleSize(10),
-              width: '30%',
-              alignItems: 'center',
-              borderRadius: scaleSize(10),
-              marginTop: scaleSize(20),
-              alignSelf: 'center',
-            }}
-            onPress={() => setShowData(true)}>
-            <Text
-              style={{
-                fontSize: scaleFont(14),
-                color: 'white',
-                fontWeight: '500',
-                // marginTop: scaleSize(10),
-              }}>
-              Filter
-            </Text>
-          </TouchableOpacity>
-        </View>
-        {showData && (
-          <View>
-            {data.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  onPress={() => props.navigation.navigate(Screens.DETAIL)}
-                  key={index}
-                  style={{
-                    backgroundColor: '#04C9EC0D',
-                    marginHorizontal: scaleSize(20),
-                    padding: scaleSize(20),
-                    borderRadius: scaleSize(10),
-                    marginTop: scaleSize(20),
-                  }}>
-                  <View style={{flexDirection: 'row', flex: 1}}>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#000000',
-                        fontWeight: '500',
-                        flex: 0.5,
-                      }}>
-                      Client Name -{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#666666',
-                        fontWeight: '500',
-                        flex: 1,
-                      }}>
-                      Utkarsh
-                    </Text>
-                  </View>
-                  <View style={{flexDirection: 'row', flex: 1}}>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#000000',
-                        fontWeight: '500',
-                        flex: 0.5,
-                      }}>
-                      Phone Number -{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#666666',
-                        fontWeight: '500',
-                        flex: 1,
-                      }}>
-                      88886666955
-                    </Text>
-                  </View>
-                  <View style={{flexDirection: 'row', flex: 1}}>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#000000',
-                        fontWeight: '500',
-                        flex: 0.5,
-                      }}>
-                      Meeting Date -{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#666666',
-                        fontWeight: '500',
-                        flex: 1,
-                      }}>
-                      20/01/2024
-                    </Text>
-                  </View>
-                  <View style={{flexDirection: 'row', flex: 1}}>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#000000',
-                        fontWeight: '500',
-                        flex: 0.5,
-                      }}>
-                      Shift Time -{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#666666',
-                        fontWeight: '500',
-                        flex: 1,
-                      }}>
-                      8:00PM - 9:00PM
-                    </Text>
-                  </View>
-                  <View style={{flexDirection: 'row', flex: 1}}>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#000000',
-                        fontWeight: '500',
-                        flex: 0.5,
-                      }}>
-                      Client Address -{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: scaleFont(14),
-                        color: '#666666',
-                        fontWeight: '500',
-                        flex: 1,
-                      }}>
-                      Forest Hills South Side 440018
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              );
-            })}
           </View>
-        )}
+          <View style={{}}>
+            <Text
+              style={{
+                fontSize: scaleFont(14),
+                color: 'black',
+                fontWeight: '500',
+                // backgroundColor: 'red',
+              }}>
+              *To
+            </Text>
+            <Text
+              style={{
+                fontSize: scaleFont(14),
+                color: '#959595',
+                fontWeight: '500',
+                // marginTop: scaleSize(10),
+                textDecorationLine: 'underline',
+              }}>
+              22/11/2023
+            </Text>
+          </View>
+          <View style={{}}>
+            <Text
+              style={{
+                fontSize: scaleFont(14),
+                color: 'black',
+                fontWeight: '500',
+                // backgroundColor: 'red',
+              }}>
+              *Status
+            </Text>
+            <Text
+              style={{
+                fontSize: scaleFont(14),
+                color: '#959595',
+                fontWeight: '500',
+                // marginTop: scaleSize(10),
+                textDecorationLine: 'underline',
+              }}>
+              Open
+            </Text>
+          </View>
+        </View>
+
+        <TouchableOpacity
+          style={{
+            backgroundColor: '#337ab7',
+            padding: scaleSize(10),
+            width: '30%',
+            alignItems: 'center',
+            borderRadius: scaleSize(5),
+            marginTop: scaleSize(20),
+            alignSelf: 'center',
+          }}
+          onPress={() =>
+            // setShowData(true)
+            bottomSheet.current.open()
+          }>
+          <Text
+            style={{
+              fontSize: scaleFont(14),
+              color: 'white',
+              fontWeight: '500',
+              // marginTop: scaleSize(10),
+            }}>
+            Filter
+          </Text>
+        </TouchableOpacity>
+        <Image
+          source={require('../assets/image/listView.jpeg')}
+          style={{
+            width: scaleSize(150),
+            height: scaleSize(100),
+            alignSelf: 'center',
+            marginTop: scaleSize(30),
+          }}
+          resizeMode="contain"
+        />
       </ScrollView>
+      <FilterListBottomSheet
+        refRBSheet={bottomSheet}
+        navigation={props.navigation}
+      />
     </SafeAreaView>
   );
 }
