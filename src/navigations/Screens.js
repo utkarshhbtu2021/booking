@@ -2,9 +2,10 @@ export default {
   SPLASH: 'Splash',
   PRODUCT_DETAIL: 'ProductDetail',
   LOGIN: 'Login',
-  PRODUCT_LIST: 'ProductList',
+  SCHEDULE: 'Schedule',
   BOTTOM: 'BottomNavigation',
   DASHBOARD: 'Dashboard',
   MY_PROGILE: 'Myprofile',
-  POLICY: 'Policy',
+  DETAIL: 'Detail',
+  DRAWER: 'Drawer',
 };

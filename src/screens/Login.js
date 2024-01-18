@@ -191,7 +191,7 @@ export default function Login(props) {
               alignItems: 'center',
               // alignSelf: 'center',
             }}
-            onPress={() => props.navigation.navigate(Screens.DASHBOARD)}>
+            onPress={() => props.navigation.navigate(Screens.DRAWER)}>
             <Text
               style={{
                 fontSize: scaleFont(18),

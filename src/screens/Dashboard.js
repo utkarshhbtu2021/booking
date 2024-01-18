@@ -18,8 +18,8 @@ import SVG_MOBILE from '../assets/svg/mobile.svg';
 import {scaleFont, scaleSize} from '../utils/Mixins';
 
 export default function Dashboard(props) {
-  const [mobile, setMobile] = useState();
-  const [OTP, setOTP] = useState();
+  const [showData, setShowData] = useState(false);
+  const data = [1, 2, 3];
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#F7850F'}}>
       <StatusBar
@@ -40,7 +40,10 @@ export default function Dashboard(props) {
           paddingBottom: scaleSize(20),
         }}>
         <SVG_MENU
-          onPress={() => props.navigation.navigate(Screens.MY_PROGILE)}
+          onPress={() =>
+            // props.navigation.navigate(Screens.MY_PROGILE)
+            props.navigation.openDrawer()
+          }
         />
 
         <Text
@@ -247,7 +250,8 @@ export default function Dashboard(props) {
               borderRadius: scaleSize(10),
               marginTop: scaleSize(20),
               alignSelf: 'center',
-            }}>
+            }}
+            onPress={() => setShowData(true)}>
             <Text
               style={{
                 fontSize: scaleFont(14),
@@ -259,6 +263,125 @@ export default function Dashboard(props) {
             </Text>
           </TouchableOpacity>
         </View>
+        {showData && (
+          <View>
+            {data.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  onPress={() => props.navigation.navigate(Screens.DETAIL)}
+                  key={index}
+                  style={{
+                    backgroundColor: '#04C9EC0D',
+                    marginHorizontal: scaleSize(20),
+                    padding: scaleSize(20),
+                    borderRadius: scaleSize(10),
+                    marginTop: scaleSize(20),
+                  }}>
+                  <View style={{flexDirection: 'row', flex: 1}}>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#000000',
+                        fontWeight: '500',
+                        flex: 0.5,
+                      }}>
+                      Client Name -{' '}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#666666',
+                        fontWeight: '500',
+                        flex: 1,
+                      }}>
+                      Utkarsh
+                    </Text>
+                  </View>
+                  <View style={{flexDirection: 'row', flex: 1}}>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#000000',
+                        fontWeight: '500',
+                        flex: 0.5,
+                      }}>
+                      Phone Number -{' '}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#666666',
+                        fontWeight: '500',
+                        flex: 1,
+                      }}>
+                      88886666955
+                    </Text>
+                  </View>
+                  <View style={{flexDirection: 'row', flex: 1}}>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#000000',
+                        fontWeight: '500',
+                        flex: 0.5,
+                      }}>
+                      Meeting Date -{' '}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#666666',
+                        fontWeight: '500',
+                        flex: 1,
+                      }}>
+                      20/01/2024
+                    </Text>
+                  </View>
+                  <View style={{flexDirection: 'row', flex: 1}}>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#000000',
+                        fontWeight: '500',
+                        flex: 0.5,
+                      }}>
+                      Shift Time -{' '}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#666666',
+                        fontWeight: '500',
+                        flex: 1,
+                      }}>
+                      8:00PM - 9:00PM
+                    </Text>
+                  </View>
+                  <View style={{flexDirection: 'row', flex: 1}}>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#000000',
+                        fontWeight: '500',
+                        flex: 0.5,
+                      }}>
+                      Client Address -{' '}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: scaleFont(14),
+                        color: '#666666',
+                        fontWeight: '500',
+                        flex: 1,
+                      }}>
+                      Forest Hills South Side 440018
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

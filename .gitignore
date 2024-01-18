@@ -64,3 +64,8 @@ yarn-error.log
 
 # testing
 /coverage
+
+# apk
+yarn.lock
+package-lock.json
+android/app/release/*

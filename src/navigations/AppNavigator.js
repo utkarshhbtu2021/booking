@@ -10,13 +10,11 @@ import {useEffect, useState} from 'react';
 
 import Splash from '../screens/Splash';
 import Login from '../screens/Login';
-import Otp from '../screens/ProductList';
-import Demo from '../screens/ProductDetail';
+// import DrawerNavigation from "./DrawerNavigation";
 import Myprofile from '../screens/Myprofile';
-import Policy from '../screens/Policy';
-import ProductDetail from '../screens/ProductDetail';
-import ProductList from '../screens/ProductList';
-import Dashboard from '../screens/Dashboard';
+import Detail from '../screens/Detail';
+import DrawerNavigation from './DrawerNavigation';
+import Schedule from '../screens/Schedule';
 const openConfig = {
   animation: 'timing',
   config: {
@@ -45,11 +43,11 @@ function App() {
         }}>
         <Stack.Screen name={SCREENS.SPLASH} component={Splash} />
         <Stack.Screen name={SCREENS.LOGIN} component={Login} />
-        <Stack.Screen name={SCREENS.PRODUCT_LIST} component={ProductList} />
-        <Stack.Screen name={SCREENS.PRODUCT_DETAIL} component={ProductDetail} />
+        <Stack.Screen name={SCREENS.SCHEDULE} component={Schedule} />
         <Stack.Screen name={SCREENS.MY_PROGILE} component={Myprofile} />
-        <Stack.Screen name={SCREENS.DASHBOARD} component={Dashboard} />
-        {/* <Stack.Screen name={SCREENS.BOTTOM} component={BottomNavigation} /> */}
+        {/* <Stack.Screen name={SCREENS.DASHBOARD} component={Dashboard} /> */}
+        <Stack.Screen name={SCREENS.DRAWER} component={DrawerNavigation} />
+        <Stack.Screen name={SCREENS.DETAIL} component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
