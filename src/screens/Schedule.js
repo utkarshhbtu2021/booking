@@ -198,7 +198,14 @@ export default function Schedule(props) {
               // justifyContent: 'center',
               marginTop: scaleSize(90),
             }}>
-            <Text>Please select date for data</Text>
+            <Text
+              style={{
+                fontSize: scaleFont(18),
+                color: 'gray',
+                fontWeight: '500',
+              }}>
+              Please select date for data
+            </Text>
           </View>
         )}
       </View>
