@@ -26,7 +26,7 @@ export default function Myprofile(props) {
         animated={true}
         translucent
         backgroundColor={'transparent'}
-        barStyle={'dark-content'}
+        barStyle={'light-content'}
         hidden={false}
       />
       <View
@@ -266,7 +266,7 @@ export default function Myprofile(props) {
           style={{
             width: '90%',
             paddingVertical: scaleSize(15),
-            backgroundColor: '#F7850F',
+            backgroundColor: '#337ab7',
             borderRadius: 40,
             alignItems: 'center',
             // alignSelf: 'center',

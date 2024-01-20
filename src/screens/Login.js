@@ -37,7 +37,7 @@ export default function Login(props) {
         animated={true}
         translucent
         backgroundColor={'transparent'}
-        barStyle={'dark-content'}
+        barStyle={'light-content'}
         hidden={false}
       />
       <ScrollView>
@@ -186,12 +186,12 @@ export default function Login(props) {
             style={{
               width: '90%',
               paddingVertical: scaleSize(15),
-              backgroundColor: '#F7850F',
+              backgroundColor: '#337ab7',
               borderRadius: 40,
               alignItems: 'center',
               // alignSelf: 'center',
             }}
-            onPress={() => props.navigation.navigate(Screens.DRAWER)}>
+            onPress={() => props.navigation.navigate(Screens.DASHBOARD)}>
             <Text
               style={{
                 fontSize: scaleFont(18),

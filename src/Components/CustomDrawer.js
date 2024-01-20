@@ -15,7 +15,7 @@ const CustomDrawer = props => {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#F7850F',
+        backgroundColor: '#337ab7',
         paddingHorizontal: scaleSize(20),
         paddingTop: scaleSize(30),
         alignItems: 'center',

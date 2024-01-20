@@ -36,7 +36,7 @@ export default function Splash(props) {
         animated={true}
         translucent
         backgroundColor={'transparent'}
-        barStyle={'dark-content'}
+        barStyle={'light-content'}
         hidden={false}
       />
       <Image

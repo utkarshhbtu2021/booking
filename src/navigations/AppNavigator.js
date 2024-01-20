@@ -15,6 +15,10 @@ import Myprofile from '../screens/Myprofile';
 import Detail from '../screens/Detail';
 import DrawerNavigation from './DrawerNavigation';
 import Schedule from '../screens/Schedule';
+import Dashboard from '../screens/Dashboard';
+import Help from '../screens/Help';
+import Calender from '../screens/Calender';
+import Visit from '../screens/Visit';
 const openConfig = {
   animation: 'timing',
   config: {
@@ -45,8 +49,11 @@ function App() {
         <Stack.Screen name={SCREENS.LOGIN} component={Login} />
         <Stack.Screen name={SCREENS.SCHEDULE} component={Schedule} />
         <Stack.Screen name={SCREENS.MY_PROGILE} component={Myprofile} />
-        {/* <Stack.Screen name={SCREENS.DASHBOARD} component={Dashboard} /> */}
-        <Stack.Screen name={SCREENS.DRAWER} component={DrawerNavigation} />
+        <Stack.Screen name={SCREENS.DASHBOARD} component={Dashboard} />
+        {/* <Stack.Screen name={SCREENS.DRAWER} component={DrawerNavigation} /> */}
+        <Stack.Screen name={SCREENS.HELP} component={Help} />
+        <Stack.Screen name={SCREENS.CALENDER} component={Calender} />
+        <Stack.Screen name={SCREENS.VISIT} component={Visit} />
         <Stack.Screen name={SCREENS.DETAIL} component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>

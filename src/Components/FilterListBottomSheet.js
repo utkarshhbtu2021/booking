@@ -40,7 +40,7 @@ export default function FilterListBottomSheet({refRBSheet, navigation}) {
         keyboardAvoidingViewEnabled>
         <View
           style={{
-            backgroundColor: '#F7850F',
+            backgroundColor: '#337ab7',
             paddingVertical: scaleSize(15),
             paddingHorizontal: scaleSize(25),
             flexDirection: 'row',

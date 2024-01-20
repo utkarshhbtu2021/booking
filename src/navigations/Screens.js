@@ -8,4 +8,7 @@ export default {
   MY_PROGILE: 'Myprofile',
   DETAIL: 'Detail',
   DRAWER: 'Drawer',
+  HELP: 'Help',
+  CALENDER: 'Calender',
+  VISIT: 'Visit',
 };

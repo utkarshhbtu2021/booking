@@ -22,7 +22,7 @@ export default function App() {
         return <CustomDrawer navigation={navigation} />;
       }}>
       {/* <Drawer.Screen name={SCREENS.HOME} component={Home} /> */}
-      <Drawer.Screen name={SCREENS.DASHBOARD} component={Dashboard} />
+      {/* <Drawer.Screen name={SCREENS.DASHBOARD} component={Dashboard} /> */}
     </Drawer.Navigator>
   );
 }
