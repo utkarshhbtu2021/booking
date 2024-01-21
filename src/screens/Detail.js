@@ -509,7 +509,8 @@ export default function Detail(props) {
                 fontSize: scaleFont(15),
                 fontWeight: '500',
               }}>
-              ADLs
+              {/* ADLs */}
+              Plan of care
             </Text>
             <Icon
               name={'chevron-right'}
