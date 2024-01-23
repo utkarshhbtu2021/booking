@@ -21,7 +21,7 @@ export default function Myprofile(props) {
   const [mobile, setMobile] = useState();
   const [OTP, setOTP] = useState();
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#F7850F'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#337ab7'}}>
       <StatusBar
         animated={true}
         translucent

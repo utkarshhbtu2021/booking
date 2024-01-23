@@ -97,18 +97,32 @@ export default function Dashboard(props) {
           </Text>
         </TouchableOpacity>
       </View>
-      <Text
+      <TouchableOpacity
         style={{
-          fontSize: scaleFont(18),
-          color: 'white',
-          fontWeight: '500',
-          // flex: 1,
-          // textAlign: 'center',
-          marginLeft: scaleSize(25),
+          flexDirection: 'row',
+          alignItems: 'center',
           marginBottom: scaleSize(20),
-        }}>
-        Welcome, Utkarsh Singh
-      </Text>
+        }}
+        onPress={() => props.navigation.navigate(Screens.MY_PROGILE)}>
+        <Text
+          style={{
+            fontSize: scaleFont(18),
+            color: 'white',
+            fontWeight: '500',
+            // flex: 1,
+            // textAlign: 'center',
+            marginLeft: scaleSize(25),
+          }}>
+          Welcome, Utkarsh Singh
+        </Text>
+        <FontAwesome
+          name={'edit'}
+          size={scaleSize(15)}
+          color={'white'}
+          style={{marginLeft: scaleSize(10)}}
+        />
+      </TouchableOpacity>
+
       <View
         // showsVerticalScrollIndicator={false}
         style={{
@@ -235,7 +249,7 @@ export default function Dashboard(props) {
             Filter
           </Text>
         </TouchableOpacity>
-        {showData && (
+        {showData ? (
           <ScrollView>
             {data.map((item, index) => {
               return (
@@ -380,6 +394,121 @@ export default function Dashboard(props) {
               );
             })}
           </ScrollView>
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate(Screens.DETAIL);
+            }}
+            style={{
+              // backgroundColor: '#04C9EC0D',
+              marginHorizontal: scaleSize(20),
+              padding: scaleSize(20),
+              borderRadius: scaleSize(10),
+              marginBottom: scaleSize(20),
+              elevation: 4,
+              shadowColor: 'gray',
+              // marginTop: index == 0 ? scaleSize(10) : 0,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <View style={{flex: 1}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginBottom: scaleSize(2),
+                }}>
+                <Text
+                  style={{
+                    fontSize: scaleFont(14),
+                    color: '#000000',
+                    fontWeight: '500',
+                    marginRight: scaleSize(10),
+                    // flex: 0.5,
+                  }}>
+                  Utkarsh
+                </Text>
+                {/* <ICONS name={'call'} /> */}
+                <Icon name={'call'} size={scaleSize(18)} color={'#337ab7'} />
+                <Text
+                  style={{
+                    fontSize: scaleFont(14),
+                    color: '#337ab7',
+                    fontWeight: '500',
+                    // flex: 1,
+                  }}>
+                  888866669
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginBottom: scaleSize(2),
+                }}>
+                <FontAwesome
+                  name={'calendar'}
+                  size={scaleSize(15)}
+                  color={'#666666'}
+                  style={{marginRight: scaleSize(10)}}
+                />
+                <Text
+                  style={{
+                    fontSize: scaleFont(14),
+                    color: '#666666',
+                    fontWeight: '500',
+                    // flex: 1,
+                  }}>
+                  Friday 20/01/2024
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginBottom: scaleSize(2),
+                }}>
+                <Feather
+                  name={'clock'}
+                  size={scaleSize(15)}
+                  color={'#666666'}
+                  style={{marginRight: scaleSize(10)}}
+                />
+                <Text
+                  style={{
+                    fontSize: scaleFont(14),
+                    color: '#666666',
+                    fontWeight: '500',
+                    flex: 1,
+                  }}>
+                  8:00PM - 9:00PM
+                </Text>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <Icon
+                  name={'location-on'}
+                  size={scaleSize(15)}
+                  color={'#666666'}
+                  style={{marginRight: scaleSize(10)}}
+                />
+                <Text
+                  style={{
+                    fontSize: scaleFont(14),
+                    color: 'gray',
+                    fontWeight: '500',
+                    flex: 1,
+                    fontStyle: 'italic',
+                  }}>
+                  Forest Hills South Side 440018
+                </Text>
+              </View>
+            </View>
+            <Icon
+              name={'chevron-right'}
+              size={scaleSize(25)}
+              color={'#666666'}
+              // style={{marginRight: scaleSize(10)}}
+            />
+          </TouchableOpacity>
         )}
       </View>
       <FilterListBottomSheet
